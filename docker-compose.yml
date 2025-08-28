@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=mysql
+      - REDIS_HOST=redis
+    volumes:
+      - ./uploads:/app/uploads
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: meal_plan_db
+      MYSQL_USER: mealplan
+      MYSQL_PASSWORD: mealplanpass
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  mysql_data:
+  redis_data:
