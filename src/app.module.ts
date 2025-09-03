@@ -28,8 +28,6 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
 import { AnalyticsModule } from './modules/analytics/analytics.module';
 import { AdminModule } from './modules/admin/admin.module';
 
-// 백그라운드 작업 프로세서
-import { MealPlanGenerationProcessor } from './jobs/meal-plan-generation.processor';
 import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
 
 @Module({

@@ -7,7 +7,7 @@ export default registerAs('database', (): TypeOrmModuleOptions => ({
   port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 3306,
   username: process.env.DB_USERNAME || 'root',
   password: process.env.DB_PASSWORD || 'password',
-  database: process.env.DB_NAME || 'meal_plan_db',
+  database: process.env.DB_NAME || 'foodly',
   entities: [__dirname + '/../database/entities/*.entity{.ts,.js}'],
   migrations: [__dirname + '/../database/migrations/*{.ts,.js}'],
   synchronize: process.env.NODE_ENV !== 'production',
